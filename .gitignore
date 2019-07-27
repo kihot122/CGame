@@ -1,0 +1,13 @@
+*
+!*/
+
+!*.gitignore
+!*.cpp
+!*.hpp
+!*.c
+!*.h
+!*.dll
+!*.a
+!CmakeLists.txt
+
+/make
