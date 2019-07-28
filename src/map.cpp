@@ -4,7 +4,11 @@ c_Map::c_Map(uint16_t Width, uint16_t Height) : Size{ Width, Height }
 {
 	Matrix = new c_Cell * *[Width];
 	for (int i = 0; i < Width; i++)
+	{
 		Matrix[i] = new c_Cell * [Height];
+		for (int j = 0; j < Height; j++)
+			Matrix[i][j] = new c_Cell();
+	}
 }
 
 uint16_t* c_Map::GetSize() { return Size; }
