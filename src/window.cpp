@@ -39,6 +39,7 @@ void c_Window::Draw()
 			SDL_RenderFillRect(Renderer, &Rect);
 			SDL_RenderDrawRect(Renderer, &Rect);	
 		}
+	SDL_RenderPresent(Rend);
 }
 
 uint16_t c_Window::Events()
