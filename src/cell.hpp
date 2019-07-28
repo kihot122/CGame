@@ -24,3 +24,15 @@ public:
 	c_Fruit(uint8_t Calorie);
 	uint8_t GetCal();
 };
+
+class c_SnakeHead : public c_Cell
+{
+public:
+	c_SnakeHead();
+};
+
+class c_SnakeTail : public c_Cell
+{
+public:
+	c_SnakeTail();	
+};

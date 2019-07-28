@@ -3,7 +3,7 @@ project(Dwarf)
 
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 
-add_executable(Client src/client.cpp src/cell.cpp src/map.cpp)
+add_executable(Client src/client.cpp src/cell.cpp src/map.cpp src/snake.cpp)
 add_executable(Server src/server.cpp)
 
 target_link_libraries(Client mingw32)
