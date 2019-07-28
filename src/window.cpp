@@ -12,23 +12,27 @@ void c_Window::Draw()
 {
 	SDL_SetRenderDrawColor(Renderer, 255, 255, 255, 255);
 	SDL_RenderClear(Renderer);
-	int CurrentX = 0, CurrentY = 0;
 
-	for(int x=CornerX; x<Map->GetSize()[0] and CurrentX < Width; x++, CurrentX += 64)
-		for (int y = CornerY; y < Map->GetSize()[1] and CurrentY < Height; y++, CurrentY += 64)
+	for(int x=CornerX, CurrentX = 0; x<Map->GetSize()[0] and CurrentX < Width - 64; x++, CurrentX += 64)
+		for (int y = CornerY, CurrentY = 0; y < Map->GetSize()[1] and CurrentY < Height - 64; y++, CurrentY += 64)
 		{
 			switch (Map->GetCell(x, y)->GetType())
 			{
 			case CELL_EMPTY:
 				SDL_SetRenderDrawColor(Renderer, 255, 255, 255, 255);
+				break;
 			case CELL_WALL:
 				SDL_SetRenderDrawColor(Renderer, 127, 127, 127, 255);
+				break;
 			case CELL_FRUIT:
 				SDL_SetRenderDrawColor(Renderer, 255, 0, 0, 255);
+				break;
 			case CELL_SNAKE_HEAD:
 				SDL_SetRenderDrawColor(Renderer, 255, 255, 0, 255);
+				break;
 			case CELL_SNAKE_TAIL:
 				SDL_SetRenderDrawColor(Renderer, 0, 255, 0, 255);
+				break;
 			}
 
 			SDL_Rect Rect;
@@ -37,9 +41,9 @@ void c_Window::Draw()
 			Rect.x = CurrentX;
 			Rect.y = CurrentY;
 			SDL_RenderFillRect(Renderer, &Rect);
-			SDL_RenderDrawRect(Renderer, &Rect);	
+			SDL_RenderDrawRect(Renderer, &Rect);
 		}
-	SDL_RenderPresent(Rend);
+	SDL_RenderPresent(Renderer);
 }
 
 uint16_t c_Window::Events()
